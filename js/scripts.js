@@ -62,3 +62,14 @@ emni('charged-delivery', 'delivery-charge', 20);
 // totalCost.innerText = memoryCost + storageCost + deliveryCost;
 
 // console.log(totalCost.innerText);
+document.getElementById('pomo-apply-btn').addEventListener('click', function () {
+    const pomoCode = 'stevekaku';
+    let grandTotalCost = parseInt(document.getElementById('total-price').innerText);
+    const discount = grandTotalCost * 0.2;
+    const pomoInput = document.getElementById('pomo-input').value;
+    if (pomoInput == pomoCode && grandTotalCost > 1039.2) {
+        grandTotalCost = grandTotalCost - discount;
+        document.getElementById('total-price').innerText = grandTotalCost;
+    }
+    document.getElementById('pomo-input').value = '';
+})
