@@ -16,7 +16,7 @@
 
 <body>
     <main>
-        <section class="container w-75 mx-auto mt-5">
+        <section class="container mx-auto mt-5">
             <div class="row">
                 <!-- model image  -->
                 <div class="col-md-6 ">
@@ -33,21 +33,23 @@
                     <!-- memory -->
                     <div class="memory mt-5">
                         <h6 class="fw-bold">Memory</h6>
-                        <button type="button" class="btn btn-outline-dark">8GB unified memory</button>
-                        <button type="button" class="btn btn-outline-dark">16GB unified memory</button>
+                        <button type="button" id="8gb-memory" class="btn btn-outline-dark">8GB unified memory</button>
+                        <button type="button" id="16gb-memory" class="btn btn-outline-dark">16GB unified memory</button>
                     </div>
                     <!-- storage -->
                     <div class="memory mt-5">
                         <h6 class="fw-bold">Storage</h6>
-                        <button type="button" class="btn btn-outline-dark">256GB SSD storage</button>
-                        <button type="button" class="btn btn-outline-dark">512GB SSD storage</button>
-                        <button type="button" class="btn btn-outline-dark">1TB SSD storage</button>
+                        <button type="button" id="256gb-storage" class="btn btn-outline-dark">256GB SSD storage</button>
+                        <button type="button" id="512gb-storage" class="btn btn-outline-dark">512GB SSD storage</button>
+                        <button type="button" id="1tb-storage" class="btn btn-outline-dark">1TB SSD storage</button>
                     </div>
                     <!-- delivery option -->
                     <div class="memory mt-5">
                         <h6 class="fw-bold">Choose your delivery option</h6>
-                        <button type="button" class="btn btn-outline-dark">Friday, Aug 25 FREE Prime Delivery</button>
-                        <button type="button" class="btn btn-outline-dark">Monday, Aug 21 Delivery charge $20</button>
+                        <button type="button" id="free-delivery" class="btn btn-outline-dark">Friday, Aug 25 FREE Prime
+                            Delivery</button>
+                        <button type="button" id="charged-delivery" class="btn btn-outline-dark">Monday, Aug 21 Delivery
+                            charge $20</button>
                     </div>
                     <div class="sub-total mt-5 w-50">
                         <table class="table">
@@ -58,20 +60,20 @@
                                 </tr>
                                 <tr>
                                     <th>Extra Memory Cost</th>
-                                    <th>$<span>0</span></th>
+                                    <th>$<span id="memory-cost">0</span></th>
                                 </tr>
                                 <tr>
                                     <th>Extra Storage Cost</th>
-                                    <th>$<span>0</span></th>
+                                    <th>$<span id="storage-cost">0</span></th>
                                 </tr>
                                 <tr>
                                     <th>Delivery charge</th>
-                                    <th>$<span>0</span></th>
+                                    <th>$<span id="delivery-charge">0</span></th>
                                 </tr>
                             <tfoot>
                                 <tr>
                                     <th>Totat Price</th>
-                                    <th>$<span>1299</span></th>
+                                    <th>$<span id="sub-total-price">1299</span></th>
                                 </tr>
                             </tfoot>
                             </tbody>
@@ -83,7 +85,7 @@
                 </div>
             </div>
             <hr>
-            <h1 class="text-center">Total: $<span>1299</span></h1>
+            <h1 class="text-center">Total: $<span id="total-price">1299</span></h1>
         </section>
     </main>
 
