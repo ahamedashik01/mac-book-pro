@@ -1,4 +1,4 @@
-const basePrice = 1299;
+// const basePrice = 1299;
 
 function omni(x) {
     const a = document.getElementById(x);
@@ -14,6 +14,7 @@ function emni(a, b, c) {
         const memoryCost = omni('memory-cost');
         const storageCost = omni('storage-cost');
         const deliveryCost = omni('delivery-charge');
+        const baseCost = omni('base-cost');
 
         // const memoryCostId = document.getElementById('memory-cost');
         // const memoryCostText = memoryCostId.innerText;
@@ -27,9 +28,12 @@ function emni(a, b, c) {
         // const deliveryCostText = deliveryCostId.innerText;
         // const deliveryCost = parseInt(deliveryCostText);
 
-        const totalCost = document.getElementById('sub-total-price')
-        totalCost.innerText = memoryCost + storageCost + deliveryCost + basePrice;
+        const subTotalCost = document.getElementById('sub-total-price')
+        const grandTotalCost = document.getElementById('total-price')
 
+        subTotalCost.innerText = memoryCost + storageCost + deliveryCost + baseCost;
+
+        grandTotalCost.innerText = subTotalCost.innerText;
     });
 }
 
