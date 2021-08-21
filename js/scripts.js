@@ -1,67 +1,48 @@
-// const basePrice = 1299;
-
-function omni(x) {
-    const a = document.getElementById(x);
-    const aT = a.innerText;
-    const aV = parseInt(aT);
-    return aV;
+// function for getting value form id 
+function getValue(input) {
+    const inputId = document.getElementById(input);
+    const inputText = inputId.innerText;
+    const inputValue = parseInt(inputText);
+    return inputValue;
 }
-function emni(a, b, c) {
-    document.getElementById(a).addEventListener('click', function () {
-        const extraMemoryCost = document.getElementById(b);
-        extraMemoryCost.innerText = c;
 
-        const memoryCost = omni('memory-cost');
-        const storageCost = omni('storage-cost');
-        const deliveryCost = omni('delivery-charge');
-        const baseCost = omni('base-cost');
-
-        // const memoryCostId = document.getElementById('memory-cost');
-        // const memoryCostText = memoryCostId.innerText;
-        // const memoryCost = parseInt(memoryCostText);
-
-        // const storageCostId = document.getElementById('storage-cost');
-        // const storageCostText = storageCostId.innerText;
-        // const storageCost = parseInt(storageCostText);
-
-        // const deliveryCostId = document.getElementById('delivery-charge');
-        // const deliveryCostText = deliveryCostId.innerText;
-        // const deliveryCost = parseInt(deliveryCostText);
-
+// set eventlistener and value 
+function setEventListenerAndValue(buttonId, targetId, cost) {
+    document.getElementById(buttonId).addEventListener('click', function () {
+        const targetField = document.getElementById(targetId);
+        targetField.innerText = cost;
+        // calling getValue function from (line - 2) 
+        const baseCost = getValue('base-cost');
+        const memoryCost = getValue('memory-cost');
+        const storageCost = getValue('storage-cost');
+        const deliveryCost = getValue('delivery-charge');
+        // set subtotal and grandtotal 
         const subTotalCost = document.getElementById('sub-total-price')
         const grandTotalCost = document.getElementById('total-price')
-
-        subTotalCost.innerText = memoryCost + storageCost + deliveryCost + baseCost;
-
+        subTotalCost.innerText = baseCost + memoryCost + storageCost + deliveryCost;
         grandTotalCost.innerText = subTotalCost.innerText;
     });
 }
 
-emni('8gb-memory', 'memory-cost', 0);
-emni('16gb-memory', 'memory-cost', 180);
-emni('256gb-storage', 'storage-cost', 0);
-emni('512gb-storage', 'storage-cost', 100);
-emni('1tb-storage', 'storage-cost', 180);
-emni('free-delivery', 'delivery-charge', 0);
-emni('charged-delivery', 'delivery-charge', 20);
+// default product values
+const memory8gbCost = 0;
+const memory16gbCost = 180;
+const storage256gbCost = 0;
+const storage512gbCost = 100;
+const storage1tbCost = 180;
+const freeDeliveryCost = 0;
+const urgentDeliveryCost = 20;
 
+// calling setEventListenerAndValue function from (line - 10) 
+setEventListenerAndValue('8gb-memory', 'memory-cost', memory8gbCost);
+setEventListenerAndValue('16gb-memory', 'memory-cost', memory16gbCost);
+setEventListenerAndValue('256gb-storage', 'storage-cost', storage256gbCost);
+setEventListenerAndValue('512gb-storage', 'storage-cost', storage512gbCost);
+setEventListenerAndValue('1tb-storage', 'storage-cost', storage1tbCost);
+setEventListenerAndValue('free-delivery', 'delivery-charge', freeDeliveryCost);
+setEventListenerAndValue('charged-delivery', 'delivery-charge', urgentDeliveryCost);
 
-// const memoryCostId = document.getElementById('memory-cost');
-// const memoryCostText = memoryCostId.innerText;
-// const memoryCost = parseInt(memoryCostText);
-
-// const storageCostId = document.getElementById('storage-cost');
-// const storageCostText = storageCostId.innerText;
-// const storageCost = parseInt(storageCostText);
-
-// const deliveryCostId = document.getElementById('delivery-charge');
-// const deliveryCostText = deliveryCostId.innerText;
-// const deliveryCost = parseInt(deliveryCostText);
-
-// const totalCost = document.getElementById('sub-total-price')
-// totalCost.innerText = memoryCost + storageCost + deliveryCost;
-
-// console.log(totalCost.innerText);
+// pomo code / cupon code interactions
 document.getElementById('pomo-apply-btn').addEventListener('click', function () {
     const pomoCode = 'stevekaku';
     let grandTotalCost = parseInt(document.getElementById('total-price').innerText);
